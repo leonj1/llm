@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
@@ -28,7 +28,7 @@ jobs:
       run: |
         pytest
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     environment: release
     permissions:
       id-token: write
